@@ -1,0 +1,274 @@
+#+Date:  
+#+TITLE: Quasi-experimental design for evaluation of CURE-Violence
+#+AUTHOR: Evan Misshula\\ \texttt{Criminal Justice, CUNY Graduate Center}
+#+OPTIONS: tex:dvipng
+#+OPTIONS: toc:nil 
+
+
+#+LATEX_HEADER: \usepackage{attrib}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{/home/evan/Documents/chicago/learning/Causality/bug}
+#+LATEX_HEADER: \let\iint\undefined 
+#+LATEX_HEADER: \let\iiint\undefined 
+#+LATEX_HEADER: \usepackage{dsfont}
+#+LATEX_HEADER: \usepackage[autostyle]{csquotes}
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear-icomp,sortlocale=de_DE,natbib=true,url=false, doi=true,eprint=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{mybibfile.bib}
+
+#+LATEX_HEADER: \usepackage[retainorgcmds]{IEEEtrantools}
+#+LATEX_HEADER: \author{Misshula, Evan\\ \texttt{Criminal Justice, CUNY Graduate Center}}
+#+LATEX_HEADER: \title{Demonstration Of Instrumental Variables And Control Function Methods}
+
+
+
+
+
+* Initialization						   :noexport:
+We need to begin by executing the elisp code that grants permission and 
+configures this session of org-mode.
+
+#+begin_src emacs-lisp
+  ;; Require ESS to allow evaluation of R code blocks
+   ;; (let ((ess-path "/home/evan/.emacs.d/elpa/ess-20130905.548/lisp")
+   ;;  (add-to-list 'load-pa) ess-path))
+   ;;  (setq ess-ask-for-ess-directory nil)
+   ;;  (require 'ess-site)
+   ;;  (require 'cl)
+   ;;  (require 'ox-latex))
+  
+  
+  
+  ;;gets rid of the default table of contents
+  (defun org-export-latex-no-toc (depth)  
+      (when depth
+        (format "%% Org-mode is exporting headings to %s levels.\n"
+                depth)))
+    (setq org-export-latex-format-toc-function 'org-export-latex-no-toc)
+  
+  
+  
+  ;; Configure Babel to support all languages included in the manuscript
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (ditaa      . t)     
+     (dot        . t)
+     (emacs-lisp . t)
+     (haskell    . t)
+     (org        . t)
+     (perl       . t)
+     (python     . t)
+     (R          . t)
+     (ruby       . t)
+     (sh         . t)
+     (sqlite     . t)))
+  (setq org-confirrm-babel-evaluate nil)
+#+end_src
+
+#+RESULTS:
+
+;; Set default header arguments for the Org-mode blocks used to
+;; showcase example Org-mode syntax.
+(setq org-babel-default-header-args:org '((:results . "raw silent")
+                                          (:exports . "code")))
+
+;; Replace nasty single-quotes returned by R.
+(add-hook 'org-export-latex-final-hook
+          (lambda ()
+            (replace-regexp "’" "'")
+            (goto-char (point-min))
+            (replace-regexp "  \\\\texttt{SCHEDULED:} <2010-08-18 Wed>\n\n"
+                            "   SCHEDULED: <2010-08-18 Wed>\n")
+            (goto-char (point-min))
+            (replace-regexp (regexp-quote ",*") "*")
+            (replace-regexp (regexp-quote ",#") "#")))
+
+;; don't use the full set of Org-mode latex packages
+;;(setq org-export-latex-default-packages-alist nil)
+
+;; latex-previews
+;;(add-to-list 'load-path "/Documents/org/elisp/org-mode/lisp")
+;;(require 'ox)
+
+#+RESULTS:
+=ox
+==ox
+==ox
+==ox
+==ox
+==ox
+==ox
+==ox
+
+* Model								     :export:
+
+** The theory of change
+
+Cure Violence is an implementation of The Chicago Project for Violence
+Prevention.  The project was conceived by Gary Slutkin
+\parencite{ransford201321,slutkin2012violence} at the public health
+school of the University of Illinois Chicago.  The project has a
+coherent theory of change.  This theory is built on specific social
+structures norms, risks and choices.  The model is novel because it
+treats violence as an epidemic.  People who engage in acts of violence
+are not regarded as bad people.  They are regarded as sick (or
+infected by their environment).  As such it runs counter to many
+established criminological theories and moral philosophy such as the
+Biological
+\parencite{Gibson2002,Lambroso1890,Lambroso1890a,Gould1996},
+Individual Trait \parencite{glueck1950unraveling,glueck1956physique},
+Self-control \parencite{Gott1990,Akers1991} and Genetic Theory of
+Crime
+\parencite{moffitt1993adolescence,moffitt2005new,barkan1992retreat}.
+The theory also holds that as in the treatment of disease, punishment
+is likely to be overvalued as a method of behavior change which sets
+it apart from both Classical
+\parencite{beccaria2009crimes,devine1981cesare} and Rational Choice
+\parencite{becker1974crime,levitt2004understanding} Criminiology.
+  
+
+These social structures act as inputs.  The inputs are posited to be
+causally related to violence. Designing an evaluation and testing this
+theory is the point of this proposal.  The theory of the program
+allows us to look at not just what participants actions are supposed
+to be but also what the influence are supposed to be \parencite{Leeuw2003}.
+** Mechanism
+
+In Cure Violence the participants are encouraged to stop
+shooting. Ceasefire did not demand that their clients cease all
+criminal activities just that they not use deadly violence in their
+disputes.  In fact, violence interuptors often reminded participants
+and gang leaders that violence was bad for their ostensible business,
+selling drugs.  In this way, Cure Violence can be thought of as harm
+reduction not personal redemption.
+
+** Focus on highest risk people
+
+Client selection tried to operationalize ``high risk of being shot or being a shooter.'' 
+Clients needed to be:
+
+- between 16 and 15
+- a person with history of arrests and imprisonment
+- involved in drug trade
+- a gang member
+- a recent shooting victim
+
+** Mechanism to stop shooting 
+
+The three conditions the program seeks to change are the norms for settling disputes, the 
+alternatives to deadly violence to settle disputes and the perceived risk of engaging in violence.
+
+** Causal Factors
+
+*** Norm Change
+
+Norms define a range of behavior that most in a community find acceptable even if self-adherence is 
+not perfect.  Norms vary from community to community.  If the majority in a community feel that the 
+institutions of civil society are inherently biased against them they will not avail themselves of 
+those institutions.  In many high crime areas people believe that crime against other persons is 
+wrong and unacceptable.  However deep suspicion of the police and criminal justice system may allow a
+culture of ``no snitching'' to prevail.  Cure Violence sought to restore faith in the Criminal Justice
+system as an effective means of dealing with violence and disrupt the norms against talking to the 
+police.
+
+Encouraging debates over ``what people will and won't accept'' was a core strategy.  This was
+done with rallies and local debates.  This was consistent with wide distribution of anti-violence
+literature.
+
+*** Decision Alternatives
+
+Violence interruptors sought to disparage violence when it would be counterproductive.  They also 
+negotiated and promoted truces.  They negotiated fines and occasionally steered conflict to 
+physical altercations.  This behavior severely reduced but did not eliminate injury.
+
+  
+*** Risk Enhancement
+
+Focus potential shooters on the consequences of their actions on the community they still have, 
+their mother, siblings and grandparents.  Use the grief at gang funerals for a positive message and 
+remind the potential shooter that they are not immune to the long-term consequences of gang
+involvement.
+
+* Evaluation							     :export:
+
+Suitable comparison tracts will be selected by matching Cure Violence
+areas with tracts with similar demographic features. The matching
+variables included racial composition, family organization, poverty,
+number of young men, unemployment and home ownership.
+
+A prior evaluation of the program used a conventional Box-Jenkins-Tiao
+intervention analysis with a transfer function at the start of the
+intervention.  As per Box and Tiao (1976) a difference of means test
+between the actual number and the predicted number of shootings during
+program operation.  Kernel Density Estimation was used to detect
+change in spatial patterns of crime over time.
+
+** Comparison Sites
+
+In Chicago for the prior evaluation each site had between two and four
+comparison sites. In NYC, there are 2 sites operational with 2 more
+funded to open.  Each new site will be restricted to a single census
+tract. The evaluation team has been given data (under strict
+non-disclosure and non-dissemination from the New York Police
+Department "NYPD").  NYC is composed 2166 census tracts.  We received
+data on homicide in 1130 census tracts, arrests for violent crimes in
+745 census tracts, complaints of violent crimes in 792 census tracts
+and shootings in 1348 census tracts. Negotiation with the NYPD for
+more complete data is ongoing.
+
+The approach of the prior evaluation was to use a limited number of
+``best matches''.  This appears to waste information that may be
+contained in the non ``k-best'' matches.  We would propose to create a
+distribution of matches from all non-program and non-competing program
+sites by examining the similarity of the crime over time.  The crime
+data rather than the demographics should take precedence in
+constructing the comparison.  Missing data should be imputed through
+multiple imputation.  An ARIMA model has the form:
+
+\begin{equation}
+Y_t=f(X_t)+N_t
+\end{equation}
+
+The intervention is designated \( I_t \).  Enumerating the ARIMA(p,d,q) model:
+
+\begin{equation}
+\Delta^d y_t = \mu + \phi_1 \Delta^d y_{t-1} + \phi_2 \Delta^d y_{t-2} + \cdots + \phi_p \Delta^d y_{t-p} + \\
+\theta_{t-1} \epsilon_{t-1} + \theta_{t-2} \epsilon_{t-2} + \cdots + \theta_{t-q} \epsilon_{t-q}
+\end{equation}
+
+where \( \epsilon_t \sim N(0, \sigma^2_{\epsilon}) \).  Time series analysis follows a standard protocol:
+
+1. Perform a Dickey-Fuller test for stationarity
+2. Check for seasonality, and if so, correct for it
+3. Check for the presence of an integrated trend
+4. Estimate the noise parameters
+5. Check impact speed and duration
+
+This is not appropriate for homicide because of the censoring problem at 0.  In this case we will attempt a
+poisson regression and use negative binomial if variance is significantly greater than the mean.
+
+** Spatial inequality in the risk of crime over time
+
+Kernel Density estimation has been used to create heat maps before and after an intervention.  Prior 
+evaluations have used a negative exponential density with a half mile grid.  Also it is possible to
+create an inequality of spatial risk of crime.  By using ordered crime index data we can also create a
+Lorenz Curve shooting risk.  This allows us to calculate both overall and time weighted gini coefficients 
+for each crime category.
+
+* References							     :export:
+
+  \printbibliography[heading=none]
+* Something							   :noexport:
+One striking finding of the interviews was how important CeaseFire loomed in their lives;
+after their parents, their outreach worker was typically rated the most important adult in their
+lives. Well below CeaseFire came their brothers and sisters, grandparents. Spouses, coaches,
+teachers, counselors and, in last place, clergy, came after, at below 10 percent. Clients mentioned
+the importance of being able to reach their outreach worker at critical moments in their lives –
+times when they were tempted to resume taking drugs, were involved in illegal activities, or
+when they felt that violence was imminent.
+
+ In the staff survey, 30 percent of violence interrupters estimated that less than half of the people
+they talked to for information hung out in the target area, and 40 said fewer than half of the
+conflicts they mediated would have occurred in their target area. The statistical analyses
+described later in the report monitored crime only in the official sites, and the freewheeling
+activities of the interrupters did not fit this evaluation model very well.

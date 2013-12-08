@@ -1,0 +1,28 @@
+(TeX-add-style-hook "mybibfile"
+ (lambda ()
+    (LaTeX-add-bibitems
+     "slutkin2012violence"
+     "ransford201321"
+     "Gibson2002"
+     "Lambroso1890"
+     "Lambroso1890a"
+     "Gould1996"
+     "glueck1950unraveling"
+     "glueck1956physique"
+     "Gott1990"
+     "Akers1991"
+     "moffitt1993adolescence"
+     "moffitt2005new"
+     "barkan1992retreat"
+     "beccaria2009crimes"
+     "devine1981cesare"
+     "levitt2004understanding"
+     "becker1974crime"
+     "Leeuw2003"
+     "prop2010"
+     "cerniglia2013save"
+     "wilson2010community"
+     "capowich1995evaluating"
+     "silverman1999nypd"
+     "scott2000problem")))
+
