@@ -4,18 +4,20 @@
      "mybibfile")
     (LaTeX-add-labels
      "sec-1"
-     "sec-1-1"
-     "sec-1-2"
-     "sec-1-3"
-     "sec-1-4"
-     "sec-1-5"
-     "sec-1-5-1"
-     "sec-1-5-2"
-     "sec-1-5-3"
      "sec-2"
      "sec-2-1"
+     "fig:hivdrop"
      "sec-2-2"
-     "sec-3")
+     "sec-2-3"
+     "sec-2-4"
+     "sec-2-5"
+     "sec-2-5-1"
+     "sec-2-5-2"
+     "sec-2-5-3"
+     "sec-3"
+     "sec-3-1"
+     "sec-3-2"
+     "sec-4")
     (TeX-add-symbols
      "iint"
      "iiint")

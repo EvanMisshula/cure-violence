@@ -102,8 +102,21 @@ configures this session of org-mode.
 
 * Introduction							     :export:
 
-Violent crime is the most important social problem the policing addresses. Violent crime 
-remains an important public health problem in the United States. 
+Violent crime is the most important social problem the policing
+addresses. Violent crime remains an important public health problem in
+the United States.  There were more than 9,000 gun homicides in 2008
+\parencite{fbi2} and more than 71,000 non-fatal firearm injuries
+\parencite{center2012injury}.  In Pittsburgh, one US city where
+anti-violence programs have been implemented, young black men have a
+homicide victimization rate 50x the US average \parencite{ovol2005}.
+
+It is important to note that this problem has important secular
+trends.  In the last twenty years both gun homicide and violent crime
+have fallen precipitously. Gun homicide was recently 3.8 per 100K
+(2010) vs 7.0 per 100K (1993) and violent crime has declined even more
+sharply on a percentage basis to 2,254.2 (2010) v. 7,976.3 (1993)
+\parencite{fbi1}.
+
 * Model								     :export:
 
 ** The theory of change
@@ -128,8 +141,17 @@ The theory also holds that as in the treatment of disease, punishment
 is likely to be overvalued as a method of behavior change which sets
 it apart from both Classical
 \parencite{beccaria2009crimes,devine1981cesare} and Rational Choice
-\parencite{becker1974crime,levitt2004understanding} Criminiology.
-  
+\parencite{becker1974crime,levitt2004understanding} Criminology.
+Dr. Slutkin's previous work on HIV in Africa informs the work.  It was
+during his years in Uganda that the World Health Organization was able
+to reduce HIV transmission rates dramatically (Figure \ref{fig:hivdrop},
+p. \pageref{fig:hivdrop}).
+
+#+attr_latex: width=0.8\textwidth,placement=[p]
+#+label: fig:hivdrop
+#+caption: HIV prevelence in Uganda 1990-2005 \parencite{world2008epidemiological}
+[[./assets/543px-Estimated_adult_(15-49)_HIV_prevalence,_Uganda,_1990-2007.png]]
+
 
 These social structures act as inputs.  The inputs are posited to be
 causally related to violence. Designing an evaluation and testing this
@@ -194,6 +216,15 @@ remind the potential shooter that they are not immune to the long-term consequen
 involvement.
 
 * Evaluation							     :export:
+
+Evaluation of the efficacy of a program like Cure Violence poses
+substantial theoretical and methodological challenges. The long
+downward trend in crime creates the possibility of that this program
+simply co-occurred with a decline in crime rather than caused it.
+Since the intervention is not strictly randomized a comparison group
+needs to be constructed.  This general methodology is called a
+Quasi-experiment \parencite{shadish}.  Indeed many other explanations
+for a decline in crime have been posited in the academic literature.
 
 Suitable comparison tracts will be selected by matching Cure Violence
 areas with tracts with similar demographic features. The matching

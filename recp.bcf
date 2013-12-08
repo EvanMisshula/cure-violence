@@ -298,6 +298,10 @@
     <bcf:datasource type="file" datatype="bibtex">mybibfile.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey>fbi2</bcf:citekey>
+    <bcf:citekey>center2012injury</bcf:citekey>
+    <bcf:citekey>ovol2005</bcf:citekey>
+    <bcf:citekey>fbi1</bcf:citekey>
     <bcf:citekey>ransford201321</bcf:citekey>
     <bcf:citekey>slutkin2012violence</bcf:citekey>
     <bcf:citekey>Gibson2002</bcf:citekey>
@@ -315,6 +319,7 @@
     <bcf:citekey>devine1981cesare</bcf:citekey>
     <bcf:citekey>becker1974crime</bcf:citekey>
     <bcf:citekey>levitt2004understanding</bcf:citekey>
+    <bcf:citekey>world2008epidemiological</bcf:citekey>
     <bcf:citekey>Leeuw2003</bcf:citekey>
   </bcf:section>
 </bcf:controlfile>

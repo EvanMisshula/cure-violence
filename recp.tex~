@@ -1,4 +1,4 @@
-% Created 2013-11-26 Tue 17:55
+% Created 2013-12-08 Sun 18:37
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -43,11 +43,28 @@
 
 
 
-\section{Model}
+\section{Introduction}
 \label{sec-1}
 
+Violent crime is the most important social problem the policing
+addresses. Violent crime remains an important public health problem in
+the United States.  There were more than 9,000 gun homicides in 2008
+\parencite{fbi2} and more than 71,000 non-fatal firearm injuries
+\parencite{center2012injury}.  In Pittsburgh, one US city where
+anti-violence programs have been implemented, young black men have a
+homicide victimization rate 50x the US average \parencite{ovol2005}.
+
+It is important to note that this problem has important secular
+trends.  In the last twenty years both gun homicide and violent crime
+have fallen precipitously. Gun homicide was recently 3.8 per 100K
+(2010) vs 7.0 per 100K (1993) and violent crime has declined even more
+sharply on a percentage basis to 2,254.2 (2010) v. 7,976.3 (1993)
+\parencite{fbi1}.
+\section{Model}
+\label{sec-2}
+
 \subsection{The theory of change}
-\label{sec-1-1}
+\label{sec-2-1}
 
 Cure Violence is an implementation of The Chicago Project for Violence
 Prevention.  The project was conceived by Gary Slutkin
@@ -69,7 +86,17 @@ The theory also holds that as in the treatment of disease, punishment
 is likely to be overvalued as a method of behavior change which sets
 it apart from both Classical
 \parencite{beccaria2009crimes,devine1981cesare} and Rational Choice
-\parencite{becker1974crime,levitt2004understanding} Criminiology.
+\parencite{becker1974crime,levitt2004understanding} Criminology.
+Dr. Slutkin's previous work on HIV in Africa informs the work.  It was
+during his years in Uganda that the World Health Organization was able
+to reduce HIV transmission rates dramatically (Figure \ref{fig:hivdrop},
+p. \pageref{fig:hivdrop}).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=.9\linewidth]{./assets/543px-Estimated_adult_(15-49)_HIV_prevalence,_Uganda,_1990-2007.png}
+\caption{\label{fig:hivdrop}HIV prevelence in Uganda 1990-2005 \parencite{world2008epidemiological}}
+\end{figure}
 
 
 These social structures act as inputs.  The inputs are posited to be
@@ -79,15 +106,17 @@ allows us to look at not just what participants actions are supposed
 to be but also what the influence are supposed to be \parencite{Leeuw2003}.
 
 \subsection{Mechanism}
-\label{sec-1-2}
+\label{sec-2-2}
 
-The participants were told to stop shooting. Ceasefire did not demand that their clients cease
-all criminal activities just that they not use deadly violence in their disputes.  In fact, 
-violence interuptors often reminded participants and gang leaders that violence was bad for 
-their ostensible business, selling drugs.  In this way, Cure Violence can be thought of as
-harm reduction not personal redemption.
+In Cure Violence the participants are encouraged to stop
+shooting. Ceasefire did not demand that their clients cease all
+criminal activities just that they not use deadly violence in their
+disputes.  In fact, violence interuptors often reminded participants
+and gang leaders that violence was bad for their ostensible business,
+selling drugs.  In this way, Cure Violence can be thought of as harm
+reduction not personal redemption.
 \subsection{Focus on highest risk people}
-\label{sec-1-3}
+\label{sec-2-3}
 
 Client selection tried to operationalize ``high risk of being shot or being a shooter.'' 
 Clients needed to be:
@@ -100,15 +129,15 @@ Clients needed to be:
 \item a recent shooting victim
 \end{itemize}
 \subsection{Mechanism to stop shooting}
-\label{sec-1-4}
+\label{sec-2-4}
 
 The three conditions the program seeks to change are the norms for settling disputes, the 
 alternatives to deadly violence to settle disputes and the perceived risk of engaging in violence.
 \subsection{Causal Factors}
-\label{sec-1-5}
+\label{sec-2-5}
 
 \subsubsection{Norm Change}
-\label{sec-1-5-1}
+\label{sec-2-5-1}
 
 Norms define a range of behavior that most in a community find acceptable even if self-adherence is 
 not perfect.  Norms vary from community to community.  If the majority in a community feel that the 
@@ -123,21 +152,30 @@ Encouraging debates over ``what people will and won't accept'' was a core strate
 done with rallies and local debates.  This was consistent with wide distribution of anti-violence
 literature.
 \subsubsection{Decision Alternatives}
-\label{sec-1-5-2}
+\label{sec-2-5-2}
 
 Violence interruptors sought to disparage violence when it would be counterproductive.  They also 
 negotiated and promoted truces.  They negotiated fines and occasionally steered conflict to 
 physical altercations.  This behavior severely reduced but did not eliminate injury.
 
 \subsubsection{Risk Enhancement}
-\label{sec-1-5-3}
+\label{sec-2-5-3}
 
 Focus potential shooters on the consequences of their actions on the community they still have, 
 their mother, siblings and grandparents.  Use the grief at gang funerals for a positive message and 
 remind the potential shooter that they are not immune to the long-term consequences of gang
 involvement.
 \section{Evaluation}
-\label{sec-2}
+\label{sec-3}
+
+Evaluation of the efficacy of a program like Cure Violence poses
+substantial theoretical and methodological challenges. The long
+downward trend in crime creates the possibility of that this program
+simply co-occurred with a decline in crime rather than caused it.
+Since the intervention is not strictly randomized a comparison group
+needs to be constructed.  This general methodology is called a
+Quasi-experiment \parencite{shadish}.  Indeed many other explanations
+for a decline in crime have been posited in the academic literature.
 
 Suitable comparison tracts will be selected by matching Cure Violence
 areas with tracts with similar demographic features. The matching
@@ -152,7 +190,7 @@ program operation.  Kernel Density Estimation was used to detect
 change in spatial patterns of crime over time.
 
 \subsection{Comparison Sites}
-\label{sec-2-1}
+\label{sec-3-1}
 
 In Chicago for the prior evaluation each site had between two and four
 comparison sites. In NYC, there are 2 sites operational with 2 more
@@ -198,7 +236,7 @@ where \( \epsilon_t \sim N(0, \sigma^2_{\epsilon}) \).  Time series analysis fol
 This is not appropriate for homicide because of the censoring problem at 0.  In this case we will attempt a
 poisson regression and use negative binomial if variance is significantly greater than the mean.
 \subsection{Spatial inequality in the risk of crime over time}
-\label{sec-2-2}
+\label{sec-3-2}
 
 Kernel Density estimation has been used to create heat maps before and after an intervention.  Prior 
 evaluations have used a negative exponential density with a half mile grid.  Also it is possible to
@@ -206,7 +244,7 @@ create an inequality of spatial risk of crime.  By using ordered crime index dat
 Lorenz Curve shooting risk.  This allows us to calculate both overall and time weighted gini coefficients 
 for each crime category.
 \section{References}
-\label{sec-3}
+\label{sec-4}
 
 \printbibliography[heading=none]
 % Emacs 24.3.2 (Org mode 8.2.3c)

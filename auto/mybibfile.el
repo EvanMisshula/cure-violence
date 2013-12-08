@@ -24,5 +24,12 @@
      "wilson2010community"
      "capowich1995evaluating"
      "silverman1999nypd"
-     "scott2000problem")))
+     "scott2000problem"
+     "fbi1"
+     "fbi2"
+     "center2012injury"
+     "ovol2005"
+     "d2013gun"
+     "world2008epidemiological"
+     "shadish")))
 
