@@ -149,7 +149,7 @@ p. \pageref{fig:hivdrop}).
 
 #+attr_latex: width=0.8\textwidth,placement=[p]
 #+label: fig:hivdrop
-#+caption: HIV prevelence in Uganda 1990-2005 \parencite{world2008epidemiological}
+#+caption: HIV prevalence in Uganda 1990-2005 \parencite{world2008epidemiological}
 [[./assets/543px-Estimated_adult_(15-49)_HIV_prevalence,_Uganda,_1990-2007.png]]
 
 
@@ -226,10 +226,61 @@ needs to be constructed.  This general methodology is called a
 Quasi-experiment \parencite{shadish}.  Indeed many other explanations
 for a decline in crime have been posited in the academic literature.
 
-Suitable comparison tracts will be selected by matching Cure Violence
-areas with tracts with similar demographic features. The matching
-variables included racial composition, family organization, poverty,
-number of young men, unemployment and home ownership.
+** Alternative explanations for the secular decline in crime
+
+Alternative mainstream explanations for the decline in crime include
+the increased number of people in prison
+\parencite{levitt2004understanding}, more effective police deterrence
+\parencite{braga2008pulling}, better police tactics
+\parencite{capowich1995evaluating}, and an older population
+\parencite{van2004criminal}. More offbeat ideas include more abortion
+\parencite{donohue2001impact} and less exposure to lead paint
+\parencite{nevin2000lead}.  Yet the last time American Academy of
+Science commissioned a review of the literature it found no definitive
+cause \parencite{blumstein2008factors}.
+
+** Prior evaluations of Cure Violence
+
+There have been four cities who have released prior evaluations of
+Cure Violence
+\parencite{skogan2008evaluation,webster2009interim,wilson2010community,picard2013testing}.
+The methodologies used have become increasingly sophisticated in terms
+of isolating causality and correcting for various confounding biases
+such as selection bias.  Design differences are summarized in Table
+\ref{tab:design} (p. \pageref{tab:design}) and estimation differences
+in Table \ref{tab:estimation} (p. \pageref{tab:estimation}).
+
+#+attr_latex: width=0.8\textwidth,placement=[p]
+#+caption: Comparison of Cure Violence evaluations designs
+#+label: tab:design
+|------------+------+----------------+-----------+-----------|
+| City       | Year | Comparison     | Spatial   | Outcome   |
+|------------+------+----------------+-----------+-----------|
+| Chicago    | 2008 | 2 Police Beats | Geo       | V Pos     |
+| Baltimore  | 2010 | 1 Neighborhood | None      | Pos       |
+| Pittsburgh | 2010 | Whole City     | Spillover | No effect |
+| Brooklyn   | 2012 | 3 precincts    | None      | Pos       |
+|------------+------+----------------+-----------+-----------|
+
+#+attr_latex: width=0.8\textwidth,placement=[p]
+#+caption: Comparison of Cure Violence evaluations estimations
+#+label: tab:estimation
+|------------+------+-----+------------+-----------|
+| City       | Year | DiD | Correction | Outcome   |
+|------------+------+-----+------------+-----------|
+| Chicago    | 2008 | No  | None       | V Pos     |
+| Baltimore  | 2010 | Yes | None       | Pos       |
+| Pittsburgh | 2010 | Yes | Propensity | No effect |
+| Brooklyn   | 2012 | Yes | None       | Pos       |
+|------------+------+-----+------------+-----------|
+
+
+
+*  Suitable comparison tracts will be selected by		     :export:
+matching Cure Violence areas with tracts with similar demographic
+features. The matching variables included racial composition, family
+organization, poverty, number of young men, unemployment and home
+ownership.
 
 A prior evaluation of the program used a conventional Box-Jenkins-Tiao
 intervention analysis with a transfer function at the start of the
@@ -238,7 +289,7 @@ between the actual number and the predicted number of shootings during
 program operation.  Kernel Density Estimation was used to detect
 change in spatial patterns of crime over time.
 
-** Comparison Sites
+** Comparison Sites						     :export:
 
 In Chicago for the prior evaluation each site had between two and four
 comparison sites. In NYC, there are 2 sites operational with 2 more

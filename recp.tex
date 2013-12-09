@@ -1,4 +1,4 @@
-% Created 2013-12-08 Sun 18:40
+% Created 2013-12-08 Sun 23:44
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -95,7 +95,7 @@ p. \pageref{fig:hivdrop}).
 \begin{figure}[htb]
 \centering
 \includegraphics[width=.9\linewidth]{./assets/543px-Estimated_adult_(15-49)_HIV_prevalence,_Uganda,_1990-2007.png}
-\caption{\label{fig:hivdrop}HIV prevelence in Uganda 1990-2005 \parencite{world2008epidemiological}}
+\caption{\label{fig:hivdrop}HIV prevalence in Uganda 1990-2005 \parencite{world2008epidemiological}}
 \end{figure}
 
 
@@ -177,10 +177,63 @@ needs to be constructed.  This general methodology is called a
 Quasi-experiment \parencite{shadish}.  Indeed many other explanations
 for a decline in crime have been posited in the academic literature.
 
-Suitable comparison tracts will be selected by matching Cure Violence
-areas with tracts with similar demographic features. The matching
-variables included racial composition, family organization, poverty,
-number of young men, unemployment and home ownership.
+\subsection{Alternative explanations for the secular decline in crime}
+\label{sec-3-1}
+
+Alternative mainstream explanations for the decline in crime include
+the increased number of people in prison
+\parencite{levitt2004understanding}, more effective police deterrence
+\parencite{braga2008pulling}, better police tactics
+\parencite{capowich1995evaluating}, and an older population
+\parencite{van2004criminal}. More offbeat ideas include more abortion
+\parencite{donohue2001impact} and less exposure to lead paint
+\parencite{nevin2000lead}.  Yet the last time American Academy of
+Science commissioned a review of the literature it found no definitive
+cause \parencite{blumstein2008factors}.
+\subsection{Prior evaluations of Cure Violence}
+\label{sec-3-2}
+
+There have been four cities who have released prior evaluations of
+Cure Violence
+\parencite{skogan2008evaluation,webster2009interim,wilson2010community,picard2013testing}.
+The methodologies used have become increasingly sophisticated in terms
+of isolating causality and correcting for various confounding biases
+such as selection bias.  Design differences are summarized in Table
+\ref{tab:design} (p. \pageref{tab:design}) and estimation differences
+in Table \ref{tab:estimation} (p. \pageref{tab:estimation}).
+
+\begin{center}
+\begin{tabular}{lrlll}
+\hline
+City & Year & Comparison & Spatial & Outcome\\
+\hline
+Chicago & 2008 & 2 Police Beats & Geo & V Pos\\
+Baltimore & 2010 & 1 Neighborhood & None & Pos\\
+Pittsburgh & 2010 & Whole City & Spillover & No effect\\
+Brooklyn & 2012 & 3 precincts & None & Pos\\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{lrlll}
+\hline
+City & Year & DiD & Correction & Outcome\\
+\hline
+Chicago & 2008 & No & None & V Pos\\
+Baltimore & 2010 & Yes & None & Pos\\
+Pittsburgh & 2010 & Yes & Propensity & No effect\\
+Brooklyn & 2012 & Yes & None & Pos\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\section{Suitable comparison tracts will be selected by}
+\label{sec-4}
+matching Cure Violence areas with tracts with similar demographic
+features. The matching variables included racial composition, family
+organization, poverty, number of young men, unemployment and home
+ownership.
 
 A prior evaluation of the program used a conventional Box-Jenkins-Tiao
 intervention analysis with a transfer function at the start of the
@@ -190,7 +243,7 @@ program operation.  Kernel Density Estimation was used to detect
 change in spatial patterns of crime over time.
 
 \subsection{Comparison Sites}
-\label{sec-3-1}
+\label{sec-4-1}
 
 In Chicago for the prior evaluation each site had between two and four
 comparison sites. In NYC, there are 2 sites operational with 2 more
@@ -236,7 +289,7 @@ where \( \epsilon_t \sim N(0, \sigma^2_{\epsilon}) \).  Time series analysis fol
 This is not appropriate for homicide because of the censoring problem at 0.  In this case we will attempt a
 poisson regression and use negative binomial if variance is significantly greater than the mean.
 \subsection{Spatial inequality in the risk of crime over time}
-\label{sec-3-2}
+\label{sec-4-2}
 
 Kernel Density estimation has been used to create heat maps before and after an intervention.  Prior 
 evaluations have used a negative exponential density with a half mile grid.  Also it is possible to
@@ -244,7 +297,7 @@ create an inequality of spatial risk of crime.  By using ordered crime index dat
 Lorenz Curve shooting risk.  This allows us to calculate both overall and time weighted gini coefficients 
 for each crime category.
 \section{References}
-\label{sec-4}
+\label{sec-5}
 
 \printbibliography[heading=none]
 % Emacs 24.3.2 (Org mode 8.2.3c)

@@ -17,7 +17,10 @@
      "sec-3"
      "sec-3-1"
      "sec-3-2"
-     "sec-4")
+     "sec-4"
+     "sec-4-1"
+     "sec-4-2"
+     "sec-5")
     (TeX-add-symbols
      "iint"
      "iiint")

@@ -31,5 +31,13 @@
      "ovol2005"
      "d2013gun"
      "world2008epidemiological"
-     "shadish")))
+     "shadish"
+     "blumstein2008factors"
+     "braga2008pulling"
+     "donohue2001impact"
+     "nevin2000lead"
+     "van2004criminal"
+     "skogan2008evaluation"
+     "picard2013testing"
+     "webster2009interim")))
 
